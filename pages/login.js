@@ -30,7 +30,7 @@ function login() {
       window.localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
 
       const response = await axios.post(
-        "https://social-media-frontend-mlyfvvwgv-yigitceli.vercel.app/api/user/login",
+        "https://share-me-backend.herokuapp.com/api/user/login",
         {
           displayName: data.user.displayName,
           googleId: data.user.uid,
