@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api/",
+  baseURL: "https://share-me-backend.herokuapp.com/api/",
   headers: {
     "Content-Type": "application/json",
   },
@@ -36,8 +36,7 @@ instance.interceptors.response.use(
             ),
           });
           const access_token = rs.data.payload;
-          
-          
+
           window.localStorage.setItem(
             "accessToken",
             JSON.stringify(access_token)
