@@ -29,11 +29,14 @@ function login() {
       window.localStorage.setItem("accessToken", JSON.stringify(accessToken));
       window.localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
 
-      const response = await axios.post("http://localhost:5000/api/user/login", {
-        displayName: data.user.displayName,
-        googleId: data.user.uid,
-        photoUrl: data.user.photoURL,
-      });
+      const response = await axios.post(
+        "https://social-media-frontend-mlyfvvwgv-yigitceli.vercel.app/api/user/login",
+        {
+          displayName: data.user.displayName,
+          googleId: data.user.uid,
+          photoUrl: data.user.photoURL,
+        }
+      );
 
       dispatch(signIn({ ...data.user, saved: response.data.payload.saved }));
     } catch (error) {}
