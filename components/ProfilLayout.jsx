@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Head from "next/head";
 
 export default function ProfilLayout({ children }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex h-screen md:flex-row w-100 flex-col bg-mainColor">
       <Head>
