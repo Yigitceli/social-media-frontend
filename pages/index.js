@@ -21,7 +21,13 @@ function Home({ data }) {
 
   return (
     <div>
-      <Layout>{isLoading ? <PageLoading message={'Getting pins data...'}/> : <Feed />}</Layout>
+      <Layout>
+        {isLoading ? (
+          <PageLoading message={"Getting pins data..."} />
+        ) : (
+          <Feed />
+        )}
+      </Layout>
     </div>
   );
 }
@@ -29,7 +35,9 @@ export default withAuth(Home);
 
 export async function getServerSideProps(context) {
   try {
-    const { data } = await axios.get("https://share-me-backend.herokuapp.com/api/pin");
+    const { data } = await axios.get(
+      "https://share-me-backend.herokuapp.com/api/pin"
+    );
     return {
       props: { data: data.payload }, // will be passed to the page component as props
     };

@@ -42,7 +42,9 @@ export default function ProfilLayout({ children }) {
         </div>
       )}
       <div className="w-full h-full overflow-y-auto">
-        
+        <div className="md:hidden">
+          <Navbar setIsOpen={setIsOpen}/>
+        </div>
         {children}
       </div>
     </div>

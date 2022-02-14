@@ -5,6 +5,7 @@ import { RiHomeFill } from "react-icons/ri";
 import { categories } from "../utils/data";
 import { useSelector } from "react-redux";
 import { IoIosArrowForward } from "react-icons/io";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const active =
   " duration-200 ml-5 ease-in-out capitalize transition-all flex items-center gap-3 cursor-pointer font-bold text-black border-r-2 border-black hover:text-black";
@@ -18,9 +19,9 @@ export default function Sidebar() {
   return (
     <div className="bg-white flex justify-between h-screen shadow-md flex-col min-w-210">
       <div className="flex flex-col">
-        <img className="gap-2 my-7 mx-5" src="/logo.png" width={150} />
+        <img className="gap-2 md:my-7 my-3 mx-5" src="/logo.png" width={150} />
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col md:gap-5 gap-2">
           <Link href="/">
             <div className={Router.pathname == "/" ? active : disActive}>
               <RiHomeFill />
@@ -50,7 +51,7 @@ export default function Sidebar() {
           })}
         </div>
       </div>
-      <div className="my-4 mx-3 flex items-center">
+      <div className="md:my-4 my-2 mx-3 flex items-center">
         {user && (
           <Link href={`user/${user.uid}`}>
             <div className="flex gap-2 items-center cursor-pointer shadow-md w-full rounded-lg p-2">
@@ -60,9 +61,9 @@ export default function Sidebar() {
                 className="rounded-full w-10 h-10"
               />
               <p>{user.displayName}</p>
-              <IoIosArrowForward />
+              <IoIosArrowForward />              
             </div>
-          </Link>
+          </Link>          
         )}
       </div>
     </div>

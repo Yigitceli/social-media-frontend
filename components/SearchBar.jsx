@@ -6,12 +6,15 @@ import { useDispatch } from "react-redux";
 import { searchPin } from "../redux/pinsSlice";
 import debounce from "lodash.debounce";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function SearchBar() {  
   const dispatch = useDispatch();
+  const Router = useRouter();
 
   const handleChange = debounce((e) => {
     dispatch(searchPin(e.target.value));
+    Router.push("/search");
   }, 300);
 
   return (
@@ -22,6 +25,7 @@ export default function SearchBar() {
         type={"text"}
         placeholder="Search"
         className="outline-none w-full"
+        
       />
     </form>
   );
